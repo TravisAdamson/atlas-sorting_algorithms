@@ -9,35 +9,35 @@ void merge_sort(int *array, size_t size)
 {
 	if (!array || size == 1)
 		return;
-	recursive_sort(array, 0, size - 1);
+	run_sort(array, 0, size - 1);
 }
 
 /**
- * recursive_sort - Recursivly divides and sorts array
+ * run_sort - Recursivly divides and sorts array
  * @array: array to be split and sorted
  * @left: first index of array
  * @right: last index of array
 */
-void recursive_sort(int *array, size_t left, size_t right)
+void run_sort(int *array, size_t left, size_t right)
 {
 	size_t mid = left + (right - left - 1) / 2;
 
 	if (left < right)
 	{
-		recursive_sort(array, left, mid);
-		recursive_sort(array, mid + 1, right);
-		merge(array, left, mid, right);
+		run_sort(array, left, mid);
+		run_sort(array, mid + 1, right);
+		combine(array, left, mid, right);
 	}
 }
 
 /**
- * merge - merges the sorted split arrays
+ * combine - combines the sorted split arrays
  * @array: array to sort
  * @left: first index of array
  * @mid: middle index of array
  * @right: last index of array
 */
-void merge(int *array, size_t left, size_t mid, size_t right)
+void combine(int *array, size_t left, size_t mid, size_t right)
 {
 	size_t left_size = mid - left + 1, right_size = right - mid;
 	size_t i = 0, j = 0, index = left;
