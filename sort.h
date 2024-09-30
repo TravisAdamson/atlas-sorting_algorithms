@@ -25,5 +25,8 @@ void print_list(const listint_t *list);
 
 void shell_sort(int *array, size_t size);
 void counting_sort(int *array, size_t size);
+void merge(int *array, size_t left, size_t mid, size_t right);
+void merge_sort(int *array, size_t size);
+void recursive_sort(int *array, size_t left, size_t right);
 
 #endif
