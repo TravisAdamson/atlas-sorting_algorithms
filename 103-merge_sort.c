@@ -55,7 +55,7 @@ void merge(int *array, size_t left, size_t mid, size_t right)
 	i = 0;
 	for (; index <= right; index++)
 	{
-		if (i < left_size && (j >= right_size || left_array[i] < right_array[j]))
+		if (i < left_size && (j >= right_size || left_array[i] <= right_array[j]))
 		{
 			array[index] = left_array[i];
 			i++;
