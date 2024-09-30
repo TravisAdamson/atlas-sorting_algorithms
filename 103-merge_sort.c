@@ -39,30 +39,33 @@ void recursive_sort(int *array, size_t left, size_t right)
 */
 void merge(int *array, size_t left, size_t mid, size_t right)
 {
-	size_t l_len = mid - left + 1, r_len = right - mid;
-	size_t i = 0, j = 0, idx = left;
-	int arr_l[1024], arr_r[1024];
+	size_t left_size = mid - left + 1, right_size = right - mid;
+	size_t i = 0, j = 0, index = left;
+	int left_array[1024], right_array[1024];
 
 	printf("Merging...\n");
-	for (i = 0; i < l_len; i++)
-		arr_l[i] = array[left + i];
-	for (i = 0; i < r_len; i++)
-		arr_r[i] = array[mid + 1 + i];
-	printf("[left]: "), print_array(arr_l, l_len);
-	printf("[right]: "), print_array(arr_r, r_len);
+	for (i = 0; i < left_size; i++)
+		left_array[i] = array[left + i];
+	for (i = 0; i < right_size; i++)
+		right_array[i] = array[mid + 1 + i];
+	printf("[left]: ");
+	print_array(left_array, left_size);
+	printf("[right]: ");
+	print_array(right_array, right_size);
 	i = 0;
-	for (; idx <= right; idx++)
+	for (; index <= right; index++)
 	{
-		if (i < l_len && (j >= r_len || arr_l[i] <= arr_r[j]))
+		if (i < left_size && (j >= right_size || left_array[i] <= right_array[j]))
 		{
-			array[idx] = arr_l[i];
+			array[index] = left_array[i];
 			i++;
 		}
 		else
 		{
-			array[idx] = arr_r[j];
+			array[index] = right_array[j];
 			j++;
 		}
 	}
-	printf("[Done]: "), print_array(&array[left], right - left + 1);
+	printf("[Done]: ");
+	print_array(&array[left], right - left + 1);
 }
