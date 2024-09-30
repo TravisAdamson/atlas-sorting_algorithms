@@ -22,7 +22,7 @@ void counting_sort(int *array, size_t size)
 		return;
 	for (i = 0; i < size; i++)
 		sorting[array[i]]++;
-	for (i = 1; i < (size_t)high + i; i++)
+	for (i = 1; i < (size_t)high + 1; i++)
 		sorting[i] += sorting[i - 1];
 	print_array(sorting, (size_t)high + 1);
 	result = calloc(size, sizeof(int));
