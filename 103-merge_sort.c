@@ -53,7 +53,7 @@ void merge(int *array, size_t left, size_t mid, size_t right)
 	printf("[right]: ");
 	print_array(right_array, right_size);
 	i = 0;
-	for (; index <= right_array; index++)
+	for (; index <= right; index++)
 	{
 		if (i < left_size && (j >= right_size || left_array[i] < right_array[j]))
 		{
